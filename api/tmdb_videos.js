@@ -1,9 +1,9 @@
 export default async function handler(req, res) {
   const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
-  const { movieId } = req.query;
+  const { seriesId } = req.query;
 
-  if (!movieId) {
+  if (!seriesId) {
     return res.status(400).json({ error: "Missing movieId parameter" });
   }
 
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${TMDB_API_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/tv/${movieId}/videos?api_key=${TMDB_API_KEY}&language=en-US`
     );
 
     if (!response.ok) {
