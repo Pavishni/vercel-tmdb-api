@@ -3,7 +3,7 @@ export default async function handler(req, res) {
 
   const { movieId } = req.query;
 
-  if (!seriesId) {
+  if (!movieId) {
     return res.status(400).json({ error: "Missing movieId parameter" });
   }
 
