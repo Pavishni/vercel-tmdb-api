@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   const { seriesId } = req.query;
 
   if (!seriesId) {
-    return res.status(400).json({ error: "Missing movieId parameter" });
+    return res.status(400).json({ error: "Missing seriesId parameter" });
   }
 
   const allowedOrigins = [
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/tv/${movieId}/videos?api_key=${TMDB_API_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/tv/${seriesId}/videos?api_key=${TMDB_API_KEY}&language=en-US`
     );
 
     if (!response.ok) {
